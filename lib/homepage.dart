@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
+import 'package:empay/employeeDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -11,10 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 List<List<String>> employeeDetails = [
-  ["Parth Pandey", "Senior Developer", "Click to see more details"],
-  ["Aakash Pandey", "Tester", "Click to see more details"],
-  ["Parth Srivastava", "Backend Developer", "Click to see more details"],
-  ["Eeshan Dutta", "Blockchain Developer", "Click to see more details"],
+  ["Parth Pandey", "Senior Developer", "20000", "CTECH"],
+  ["Aakash Pandey", "Tester", "30000", "CTECH"],
+  ["Parth Srivastava", "Backend Developer", "30000", "CTECH"],
+  ["Eeshan Dutta", "Blockchain Developer", "50000", "CTECH"],
 ];
 
 class _HomePageState extends State<HomePage> {
@@ -75,7 +76,14 @@ class _HomePageState extends State<HomePage> {
     return Padding(
       padding: EdgeInsets.only(top: h * 0.02, left: w * 0.02, right: w * 0.02),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => EmployeeDetails(
+                        index: index,
+                      )));
+        },
         child: Card(
           elevation: 20,
           shadowColor: Colors.black38,
@@ -103,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                               fontSize: w * 0.03, color: Colors.blue)),
                       TextSpan(
-                          text: "\n\n" + employeeDetails[index][2],
+                          text: "\n\n + Click to see more details",
                           style:
                               TextStyle(fontSize: w * 0.03, color: Colors.grey))
                     ]))
