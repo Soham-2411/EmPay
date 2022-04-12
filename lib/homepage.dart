@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
+import 'package:empay/addemp.dart';
 import 'package:empay/employeeDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -25,6 +26,35 @@ class _HomePageState extends State<HomePage> {
     double w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: TextButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddEmployee()));
+          },
+          child: Card(
+            elevation: 20,
+            shadowColor: Colors.black38,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            child: Container(
+              height: h * 0.06,
+              //width: w * 0.3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                    child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                            text: "Add Employee",
+                            style: TextStyle(color: Colors.blue))),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
         appBar: AppBar(
           toolbarHeight: h * 0.15,
           elevation: 0,
