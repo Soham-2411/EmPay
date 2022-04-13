@@ -18,16 +18,16 @@ List<List<String>> employeeDetails = [];
 class _HomePageState extends State<HomePage> {
   @override
   Future<String> fetchEmployeeDetails() async {
-    var response = await Dio().get(
-      'http://localhost:8000/EmployeeDetails',
-    );
-    for (int c = 0; c < response.data.length; c++) {
-      employeeDetails[c][0] = response.data[c].Name;
-      employeeDetails[c][1] = response.data[c].Job_desc;
-      employeeDetails[c][2] = response.data[c].Salary;
-      employeeDetails[c][3] = response.data[c].Dept_Name;
-      employeeDetails[c][4] = response.data[c].id;
-    }
+    // var response = await Dio().get(
+    //   'http://localhost:8000/EmployeeDetails',
+    // );
+    // for (int c = 0; c < response.data.length; c++) {
+    //   employeeDetails[c][0] = response.data[c].Name;
+    //   employeeDetails[c][1] = response.data[c].Job_desc;
+    //   employeeDetails[c][2] = response.data[c].Salary;
+    //   employeeDetails[c][3] = response.data[c].Dept_Name;
+    //   employeeDetails[c][4] = response.data[c].id;
+    // }
     return "done";
   }
 

@@ -10,13 +10,20 @@ class EmployeeDetails extends StatefulWidget {
   State<EmployeeDetails> createState() => _EmployeeDetailsState();
 }
 
+double salary = 0;
+String department = '';
+
 class _EmployeeDetailsState extends State<EmployeeDetails> {
   @override
   Widget build(BuildContext context) {
-    double salary = double.parse(employeeDetails[widget.index][2]);
-    String department = employeeDetails[widget.index][3];
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
+    void initState() {
+      super.initState();
+      salary = double.parse(employeeDetails[widget.index][2]);
+      department = employeeDetails[widget.index][3];
+    }
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: h * 0.15,

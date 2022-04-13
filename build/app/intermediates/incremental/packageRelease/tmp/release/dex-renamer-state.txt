@@ -1,0 +1,4 @@
+#Wed Apr 13 12:53:23 IST 2022
+base.0=/home/soham/flutter_projects/EmPay/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
