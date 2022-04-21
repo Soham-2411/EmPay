@@ -150,7 +150,7 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                 height: 30,
               ),
               Align(
-                alignment: Alignment.bottomCenter,
+                //alignment: Alignment.bottomCenter,
                 child: TextButton(
                   onPressed: () {
                     setState(() {
@@ -187,10 +187,75 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                   ),
                 ),
               ),
+              Align(
+                //alignment: Alignment.bottomCenter,
+                child: TextButton(
+                  onPressed: () {
+                    showDeleteConfirmation(context);
+                  },
+                  child: Card(
+                    color: Colors.red,
+                    elevation: 20,
+                    shadowColor: Colors.black38,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15))),
+                    child: SizedBox(
+                      height: h * 0.07,
+                      width: w * 0.4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          RichText(
+                              textAlign: TextAlign.center,
+                              text: const TextSpan(
+                                  text: "Delete Employee",
+                                  style: TextStyle(color: Colors.white)))
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  showDeleteConfirmation(BuildContext context) {
+    // set up the button
+    Widget CancelButton = TextButton(
+      child: const Text("Cancel"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+
+    Widget YesButton = TextButton(
+      child: const Text("Yes"),
+      onPressed: () {
+        employeeDetails.removeAt(widget.index);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePage()),
+            (route) => false);
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Delete Employee"),
+      content: const Text("Are you sure you want to delete this employee?"),
+      actions: [CancelButton, YesButton],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

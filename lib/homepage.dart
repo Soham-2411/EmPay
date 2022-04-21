@@ -3,6 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:empay/addemp.dart';
 import 'package:empay/employeeDetails.dart';
+import 'package:empay/searchpage.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -14,8 +15,10 @@ class HomePage extends StatefulWidget {
 }
 
 List<List<String>> employeeDetails = [
-  ['Soham', 'FrontEnd', '50000', 'CTech', '101'],
-  ['Soham', 'FrontEnd', '50000', 'CTech', '101']
+  ['Soham Sakaria', 'FrontEnd', '50000', 'CTech', '101'],
+  ['Eeshan Dutta', 'FrontEnd', '50000', 'CTech', '101'],
+  ['Parth Pandey', 'FrontEnd', '50000', 'CTech', '101'],
+  ['Parth Srivastava', 'FrontEnd', '50000', 'CTech', '101'],
 ];
 
 class _HomePageState extends State<HomePage> {
@@ -71,17 +74,27 @@ class _HomePageState extends State<HomePage> {
           appBar: AppBar(
             toolbarHeight: h * 0.15,
             elevation: 0,
-            title: RichText(
-              text: TextSpan(children: [
-                TextSpan(
-                    text: 'WELCOME BACK',
-                    style: TextStyle(
-                        fontSize: w * 0.04, fontWeight: FontWeight.w200)),
-                TextSpan(
-                    text: '\nMANAGER',
-                    style: TextStyle(
-                        fontSize: w * 0.075, fontWeight: FontWeight.bold))
-              ]),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                        text: 'WELCOME BACK',
+                        style: TextStyle(
+                            fontSize: w * 0.04, fontWeight: FontWeight.w200)),
+                    TextSpan(
+                        text: '\nMANAGER',
+                        style: TextStyle(
+                            fontSize: w * 0.075, fontWeight: FontWeight.bold))
+                  ]),
+                ),
+                IconButton(
+                    color: Colors.white,
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const SearchPage())),
+                    icon: const Icon(Icons.search))
+              ],
             ),
             backgroundColor: HexColor("#5400ff"),
           ),
