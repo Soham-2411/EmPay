@@ -17,7 +17,6 @@ String dept = "";
 class _AddEmployeeState extends State<AddEmployee> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     name = "";
     jobTitle = "";
@@ -190,10 +189,11 @@ class _AddEmployeeState extends State<AddEmployee> {
                           !jobTitle.isEmpty) {
                         employeeDetails.add([name, jobTitle, salary, dept]);
 
-                        Navigator.push(
+                        Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => const HomePage())));
+                                builder: (context) => const HomePage()),
+                            (route) => false);
                       } else {
                         print(salary + dept + name + jobTitle);
                         showAlertDialog(context);

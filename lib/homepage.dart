@@ -13,7 +13,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-List<List<String>> employeeDetails = [];
+List<List<String>> employeeDetails = [
+  ['Soham', 'FrontEnd', '50000', 'CTech', '101'],
+  ['Soham', 'FrontEnd', '50000', 'CTech', '101']
+];
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -75,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                         fontSize: w * 0.04, fontWeight: FontWeight.w200)),
                 TextSpan(
-                    text: '\nSOHAM SAKARIA',
+                    text: '\nMANAGER',
                     style: TextStyle(
                         fontSize: w * 0.075, fontWeight: FontWeight.bold))
               ]),
@@ -156,11 +159,11 @@ class _HomePageState extends State<HomePage> {
                       TextSpan(
                           text: "\n\n" + employeeDetails[index][0],
                           style: TextStyle(
-                              fontSize: w * 0.03, color: Colors.blue)),
+                              fontSize: w * 0.035, color: Colors.blue)),
                       TextSpan(
                           text: "\n" + employeeDetails[index][1],
                           style: TextStyle(
-                              fontSize: w * 0.03, color: Colors.blue)),
+                              fontSize: w * 0.035, color: Colors.blue)),
                       TextSpan(
                           text: "\n\n + Click to see more details",
                           style:

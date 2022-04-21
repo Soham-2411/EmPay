@@ -15,14 +15,15 @@ String department = '';
 
 class _EmployeeDetailsState extends State<EmployeeDetails> {
   @override
+  void initState() {
+    super.initState();
+    salary = double.parse(employeeDetails[widget.index][2]);
+    department = employeeDetails[widget.index][3];
+  }
+
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
-    void initState() {
-      super.initState();
-      salary = double.parse(employeeDetails[widget.index][2]);
-      department = employeeDetails[widget.index][3];
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -156,10 +157,11 @@ class _EmployeeDetailsState extends State<EmployeeDetails> {
                       if (salary != null && department != null) {
                         employeeDetails[widget.index][2] = salary.toString();
                         employeeDetails[widget.index][3] = department;
-                        Navigator.push(
+                        Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: ((context) => const HomePage())));
+                                builder: (context) => const HomePage()),
+                            (route) => false);
                       }
                     });
                   },
